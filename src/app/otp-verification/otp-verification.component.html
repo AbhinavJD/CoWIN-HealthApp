@@ -3,7 +3,11 @@
         <div class="header-container">Mobile OTP</div>
         <div class="body-container">
             <input class="form-control" placeholder="Enter Mobile Number" type="number" name="mobileNumber" maxlength="10" id="MobileNumber" [(ngModel)]="mobileNumber">
-            <button class="btn btn-primary" (click)="requestOtp()">Request OTP</button>
+            <ng-template [ngIf]="isOTPSent">
+                <input class="form-control" placeholder="Enter OTP" type="number" name="otp" maxlength="6" id="OTP" [(ngModel)]="otp">
+                <button class="btn btn-primary" (click)="verifyOTP()">Verify OTP</button>
+            </ng-template>
+            <button *ngIf="!isOTPSent" class="btn btn-primary" (click)="requestOtp()">Request OTP</button>
         </div>
     </div>
 </div>

@@ -12,4 +12,7 @@ export class AuthOtpService {
   postOTPRequest(mobileNumberObj: object){
     return this.httpClientService.post("https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP", mobileNumberObj)
   }
+  postConfirmOTP(Obj: object){
+    return this.httpClientService.post("https://cdn-api.co-vin.in/api/v2/auth/public/confirmOTP", Obj)
+  }
 }
